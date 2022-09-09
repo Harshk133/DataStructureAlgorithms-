@@ -9,10 +9,33 @@ return i;
 return -1;
 }
 
+int binarySearch(int arr[], int size, int element){
+int low , mid, high;
+low = 0;
+high = size-1;
+//start searching
+while(low<=high){
+mid = (low + high)/2;
+if(arr[mid]==element){
+return mid;
+}
+if(arr[mid]<element){
+low = mid+1;
+}
+else{
+high = mid - 1;
+}
+}
+//searching end
+return -1;
+}
+
 int main(){
-int arr[] = {1,3,5,56,4,3,23,5,4,54364,56,34};
+//int arr[] = {1,3,5,56,4,3,23,5,4,54364,56,34};
+//sorted arry for binary search
+int arr[] = {1,2,3,4,5,56,70};
 int size = sizeof(arr)/sizeof(int);
-int element = 54;
+int element =70;
 int searchIndex = linearSearch(arr, size, element);
 printf("The Element %d was found at index %d\n", element, searchIndex);
 
